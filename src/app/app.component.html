@@ -1,0 +1,122 @@
+<!-- <div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-3'>
+      <app-nav-menu></app-nav-menu>
+    </div>
+    <div class='col-sm-9 body-content'>
+       <router-outlet></router-outlet> 
+    </div>
+  </div>
+</div> -->
+<div class='container-fluid'>
+<h1>Angular 13 File Upload Tutorial Example</h1>
+          
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+         
+    <div class="form-group">
+
+
+
+  <div class="file-upload">
+  <div class="file-select">
+    <div class="file-select-button" id="fileName">Choose File</div>
+    <div *ngIf="f['file'].touched && f['file'].invalid" class="file-select-name" id="noFile">No file chosen...</div> 
+    <input formControlName="file"
+            id="chooseFile"
+            type="file"
+            class="form-control"
+            accept=".csv"
+            (change)="onFileChange($event)"
+            name="chooseFile">
+  </div>
+</div>
+
+<!-- 
+        <label for="file">File</label>
+        <input
+            formControlName="file"
+            id="file"
+            type="file"
+            class="form-control"
+            accept=".csv"
+            (change)="onFileChange($event)">
+        <div *ngIf="f['file'].touched && f['file'].invalid" class="alert alert-danger">
+            <div *ngIf="f['file'].errors && f['file'].errors['required']">File is required.</div>
+        </div> -->
+
+
+
+    </div>
+    <button class="btn btn-primary" [disabled]="myForm.invalid" type="submit">Submit</button>
+</form>
+
+<div style="overflow-x:auto;">
+<table datatable class="center display responsive nowrap row-border hover stripe order-column">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Stars</th>
+        <th>URI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of Hotels">
+        <td>{{ hotel.name }}</td>
+        <td>{{ hotel.address }}</td>
+        <td>{{ hotel.contact }}</td>
+        <td>{{ hotel.stars }}</td>
+        <td>{{ hotel.uri }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+  <!-- <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. yasin" #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+        <td mat-cell *matCellDef="let row"> {{row.adress}}% </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
+        <td mat-cell *matCellDef="let row"> {{row.contact}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="stars">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stars </th>
+        <td mat-cell *matCellDef="let row"> {{row.stars}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="uri">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> URI </th>
+        <td mat-cell *matCellDef="let row"> {{row.uri}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <!-- Row shown when there is no matching data. 
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+   -->
